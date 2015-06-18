@@ -1,0 +1,10 @@
+location = /index\.php {}
+location ~ /ow_updates/index\.php {}
+location /ow_updates/ {}
+location ~ /ow_cron/run\.php {}
+location ~ /e500\.php {}
+location / {
+    if ($request_filename ~ (/|\.php|\.html|\.htm|\.xml|\.feed|robots\.txt|\.raw|/[^.]*)$){
+        rewrite ^(.*)$ /index.php;
+    }
+}
